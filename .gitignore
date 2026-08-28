@@ -1,0 +1,13 @@
+/build/
+/out/
+/CMakeFiles/
+/models/
+*.obj
+*.pdb
+*.exe
+*.ilk
+.vs/
+tiny_ci.gguf
+__pycache__/
+*.pyc
+compile_commands.json

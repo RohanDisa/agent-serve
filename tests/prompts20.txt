@@ -1,0 +1,22 @@
+# 20-prompt correctness corpus (English). For a real GGUF, tokenize and
+# compare greedy continuations of 32 tokens against the v0 dump.
+The capital of France is
+Write a haiku about memory bandwidth.
+Explain what a KV cache is in one sentence.
+Count from 1 to 10.
+What is 17 times 23?
+Give two reasons decode is memory-bound.
+Name three programming languages.
+Summarize Newton's first law.
+Translate 'good morning' to Spanish.
+List the planets of the solar system.
+Why do transformers use residual connections?
+What does RMSNorm do?
+Describe grouped-query attention briefly.
+Write a Python function that adds two numbers.
+What is arithmetic intensity?
+Who wrote The Odyssey?
+Define cache blocking in one sentence.
+Compare GEMM and GEMV.
+What is RoPE used for?
+End with the word banana.
