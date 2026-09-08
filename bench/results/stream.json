@@ -1,0 +1,318 @@
+{
+  "bench": "stream",
+  "array_size": 100000000,
+  "array_bytes_per_array": 800000000,
+  "ntimes": 10,
+  "nwarm": 3,
+  "pinning": "even logical CPUs (tid*2) via sched_setaffinity (Linux/WSL2) / SetThreadAffinityMask (Windows); physical cores on 4600H (SMT siblings are consecutive)",
+  "pinning_method": "tid*2 even logical CPUs",
+  "ceiling_kernel": "read",
+  "ceiling_kind": "read-only",
+  "authoritative_toolchain": "gcc_wsl2",
+  "gb_s_median": 19.4187,
+  "gb_s_read_6t": 19.4187,
+  "gb_s_triad_6t": 11.103,
+  "gb_s_msvc_read_6t": 17.4804,
+  "gb_s_msvc_triad_6t": 13.8327,
+  "note": "Decode ceiling is gcc/WSL2 6-thread read-only (19.42 GB/s), not triad. gcc triad 11.10 GB/s is below MSVC triad 13.83 GB/s, so MSVC was not under-measuring triad relative to gcc-in-WSL2; WSL2 write bandwidth looks worse, and neither 1-thread toolchain reached the 18-24 GB/s Zen 2 single-core expectation (gcc 8.78, MSVC 10.34). gcc 6-thread read is 11% above MSVC 6-thread read (17.48 GB/s) and 38% above the retired MSVC triad ceiling of 14.10 GB/s. Copy and Scale are reported per-toolchain for reference.",
+  "toolchains": {
+    "gcc_wsl2": {
+      "compiler": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+      "version": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+      "flags": "-O3 -march=native -fopenmp -DSTREAM_ARRAY_SIZE=100000000",
+      "environment": "WSL2 Ubuntu, nproc=12",
+      "array_size": 100000000,
+      "pinning": "even logical CPUs (tid*2) via sched_setaffinity (Linux/WSL2) / SetThreadAffinityMask (Windows); physical cores on 4600H (SMT siblings are consecutive)",
+      "by_threads": {
+        "1": {
+          "triad": {
+            "gb_s_median": 8.7827,
+            "gb_s_q1": 7.2399,
+            "gb_s_q3": 10.4528,
+            "sink": 6,
+            "kind": "triad",
+            "threads": 1
+          },
+          "copy": {
+            "gb_s_median": 7.8329,
+            "gb_s_q1": 7.3933,
+            "gb_s_q3": 7.9734,
+            "sink": 6,
+            "kind": "copy",
+            "threads": 1
+          },
+          "scale": {
+            "gb_s_median": 11.1409,
+            "gb_s_q1": 8.1381,
+            "gb_s_q3": 12.5815,
+            "sink": 18,
+            "kind": "scale",
+            "threads": 1
+          },
+          "read": {
+            "gb_s_median": 7.455,
+            "gb_s_q1": 7.284,
+            "gb_s_q3": 7.5714,
+            "sink": 18,
+            "kind": "read-only",
+            "threads": 1
+          }
+        },
+        "2": {
+          "triad": {
+            "gb_s_median": 7.5007,
+            "gb_s_q1": 6.9529,
+            "gb_s_q3": 7.8628,
+            "sink": 6,
+            "kind": "triad",
+            "threads": 2
+          },
+          "copy": {
+            "gb_s_median": 6.2975,
+            "gb_s_q1": 5.6825,
+            "gb_s_q3": 6.6837,
+            "sink": 6,
+            "kind": "copy",
+            "threads": 2
+          },
+          "scale": {
+            "gb_s_median": 7.0025,
+            "gb_s_q1": 6.6421,
+            "gb_s_q3": 7.4788,
+            "sink": 18,
+            "kind": "scale",
+            "threads": 2
+          },
+          "read": {
+            "gb_s_median": 13.8119,
+            "gb_s_q1": 13.3084,
+            "gb_s_q3": 14.3633,
+            "sink": 18,
+            "kind": "read-only",
+            "threads": 2
+          }
+        },
+        "4": {
+          "triad": {
+            "gb_s_median": 11.584,
+            "gb_s_q1": 11.3515,
+            "gb_s_q3": 11.7269,
+            "sink": 6,
+            "kind": "triad",
+            "threads": 4
+          },
+          "copy": {
+            "gb_s_median": 10.4204,
+            "gb_s_q1": 10.0303,
+            "gb_s_q3": 10.5214,
+            "sink": 6,
+            "kind": "copy",
+            "threads": 4
+          },
+          "scale": {
+            "gb_s_median": 10.5089,
+            "gb_s_q1": 9.9444,
+            "gb_s_q3": 11.0065,
+            "sink": 18,
+            "kind": "scale",
+            "threads": 4
+          },
+          "read": {
+            "gb_s_median": 16.9097,
+            "gb_s_q1": 16.456,
+            "gb_s_q3": 17.3695,
+            "sink": 18,
+            "kind": "read-only",
+            "threads": 4
+          }
+        },
+        "6": {
+          "triad": {
+            "gb_s_median": 11.103,
+            "gb_s_q1": 10.6543,
+            "gb_s_q3": 11.973,
+            "sink": 6,
+            "kind": "triad",
+            "threads": 6
+          },
+          "copy": {
+            "gb_s_median": 10.0718,
+            "gb_s_q1": 9.0944,
+            "gb_s_q3": 10.6881,
+            "sink": 6,
+            "kind": "copy",
+            "threads": 6
+          },
+          "scale": {
+            "gb_s_median": 9.3445,
+            "gb_s_q1": 8.9293,
+            "gb_s_q3": 10.402,
+            "sink": 18,
+            "kind": "scale",
+            "threads": 6
+          },
+          "read": {
+            "gb_s_median": 19.4187,
+            "gb_s_q1": 18.5419,
+            "gb_s_q3": 19.7473,
+            "sink": 18,
+            "kind": "read-only",
+            "threads": 6
+          }
+        }
+      }
+    },
+    "msvc": {
+      "compiler": "MSVC 19.31.31104.0",
+      "version": "19.31.31104.0",
+      "flags": "/O2 /openmp /arch:AVX2 /DSTREAM_ARRAY_SIZE=100000000",
+      "environment": "Windows native",
+      "array_size": 100000000,
+      "pinning": "even logical CPUs (tid*2) via sched_setaffinity (Linux/WSL2) / SetThreadAffinityMask (Windows); physical cores on 4600H (SMT siblings are consecutive)",
+      "by_threads": {
+        "1": {
+          "triad": {
+            "gb_s_median": 10.3415,
+            "gb_s_q1": 9.6128,
+            "gb_s_q3": 10.4138,
+            "sink": 6,
+            "kind": "triad",
+            "threads": 1
+          },
+          "copy": {
+            "gb_s_median": 8.0571,
+            "gb_s_q1": 7.7223,
+            "gb_s_q3": 8.2263,
+            "sink": 6,
+            "kind": "copy",
+            "threads": 1
+          },
+          "scale": {
+            "gb_s_median": 8.1355,
+            "gb_s_q1": 7.0265,
+            "gb_s_q3": 8.2701,
+            "sink": 18,
+            "kind": "scale",
+            "threads": 1
+          },
+          "read": {
+            "gb_s_median": 7.3217,
+            "gb_s_q1": 7.1758,
+            "gb_s_q3": 7.436,
+            "sink": 18,
+            "kind": "read-only",
+            "threads": 1
+          }
+        },
+        "2": {
+          "triad": {
+            "gb_s_median": 11.913,
+            "gb_s_q1": 11.4261,
+            "gb_s_q3": 12.2602,
+            "sink": 6,
+            "kind": "triad",
+            "threads": 2
+          },
+          "copy": {
+            "gb_s_median": 9.2582,
+            "gb_s_q1": 9.1759,
+            "gb_s_q3": 9.3126,
+            "sink": 6,
+            "kind": "copy",
+            "threads": 2
+          },
+          "scale": {
+            "gb_s_median": 9.5233,
+            "gb_s_q1": 9.2812,
+            "gb_s_q3": 9.8084,
+            "sink": 18,
+            "kind": "scale",
+            "threads": 2
+          },
+          "read": {
+            "gb_s_median": 8.906,
+            "gb_s_q1": 8.0735,
+            "gb_s_q3": 10.2895,
+            "sink": 18,
+            "kind": "read-only",
+            "threads": 2
+          }
+        },
+        "4": {
+          "triad": {
+            "gb_s_median": 12.172,
+            "gb_s_q1": 11.4928,
+            "gb_s_q3": 12.457,
+            "sink": 6,
+            "kind": "triad",
+            "threads": 4
+          },
+          "copy": {
+            "gb_s_median": 10.7036,
+            "gb_s_q1": 8.9736,
+            "gb_s_q3": 10.8386,
+            "sink": 6,
+            "kind": "copy",
+            "threads": 4
+          },
+          "scale": {
+            "gb_s_median": 10.8516,
+            "gb_s_q1": 8.9887,
+            "gb_s_q3": 11.1289,
+            "sink": 18,
+            "kind": "scale",
+            "threads": 4
+          },
+          "read": {
+            "gb_s_median": 17.0579,
+            "gb_s_q1": 16.3493,
+            "gb_s_q3": 17.4246,
+            "sink": 18,
+            "kind": "read-only",
+            "threads": 4
+          }
+        },
+        "6": {
+          "triad": {
+            "gb_s_median": 13.8327,
+            "gb_s_q1": 13.613,
+            "gb_s_q3": 14.0604,
+            "sink": 6,
+            "kind": "triad",
+            "threads": 6
+          },
+          "copy": {
+            "gb_s_median": 11.9811,
+            "gb_s_q1": 11.9125,
+            "gb_s_q3": 12.0711,
+            "sink": 6,
+            "kind": "copy",
+            "threads": 6
+          },
+          "scale": {
+            "gb_s_median": 12.0877,
+            "gb_s_q1": 11.9955,
+            "gb_s_q3": 12.3367,
+            "sink": 18,
+            "kind": "scale",
+            "threads": 6
+          },
+          "read": {
+            "gb_s_median": 17.4804,
+            "gb_s_q1": 15.4693,
+            "gb_s_q3": 18.244,
+            "sink": 18,
+            "kind": "read-only",
+            "threads": 6
+          }
+        }
+      }
+    }
+  },
+  "investigation": {
+    "msvc_under_measure_triad": "not confirmed vs gcc/WSL2; gcc triad is lower",
+    "read_vs_triad": "confirmed; 6t read-only is the decode roof",
+    "tdp_w": 45,
+    "tdp_note": "Ryzen 5 4600H is a 45W part; 15W is the 4600U. Power limit is not used as an explanation for STREAM."
+  }
+}

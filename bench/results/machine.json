@@ -1,0 +1,38 @@
+{
+  "cpu": "AMD Ryzen 5 4600H with Radeon Graphics",
+  "tdp_w": 45,
+  "tdp_note": "4600H is 45W; 15W is the 4600U",
+  "physical_cores": 6,
+  "logical_processors": 12,
+  "ram": "2x8GB Micron 4ATF1G64HZ DDR4-3200 dual-channel",
+  "configured_clock_speed_mts": 3200,
+  "dram_theoretical_gb_s": 51.2,
+  "os": "Windows 10.0.26200",
+  "stream_authoritative_toolchain": "gcc_wsl2",
+  "stream_compiler": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "stream_flags": "-O3 -march=native -fopenmp -DSTREAM_ARRAY_SIZE=100000000",
+  "stream_array_size": 100000000,
+  "stream_openmp": true,
+  "stream_pinning": "tid*2 even logical CPUs (physical cores)",
+  "stream_ceiling_kind": "read-only",
+  "stream_gb_s_by_threads_read": {
+    "1": 7.455,
+    "2": 13.8119,
+    "4": 16.9097,
+    "6": 19.4187
+  },
+  "stream_gb_s_by_threads_triad_gcc": {
+    "1": 8.7827,
+    "2": 7.5007,
+    "4": 11.584,
+    "6": 11.103
+  },
+  "stream_gb_s_median": 19.4187,
+  "stream_gb_s_read_6t": 19.4187,
+  "stream_gb_s_triad_6t": 11.103,
+  "msvc_stream_compiler": "MSVC 19.31.31104.0",
+  "msvc_stream_flags": "/O2 /openmp /arch:AVX2 /DSTREAM_ARRAY_SIZE=100000000",
+  "msvc_stream_gb_s_read_6t": 17.4804,
+  "msvc_stream_gb_s_triad_6t": 13.8327,
+  "gemm_gflop_s_median": 82.8629
+}

@@ -1,0 +1,32 @@
+{
+  "bench": "e2e",
+  "stage": "v2",
+  "threads": 6,
+  "simd": true,
+  "blocked": false,
+  "kv_layout": "seq",
+  "n_in": 11,
+  "n_predict": 32,
+  "weight_bytes": 1169072128,
+  "prefill_tok_s_median": 22.2894,
+  "prefill_tok_s_q1": 18.5255,
+  "prefill_tok_s_q3": 22.4293,
+  "decode_tok_s_median": 9.2738,
+  "decode_tok_s_q1": 9.037,
+  "decode_tok_s_q3": 10.5218,
+  "ttft_s_median": 0.493509,
+  "decode_tok_ms_p50": 100.8093,
+  "decode_tok_ms_p95": 132.2465,
+  "decode_tok_ms_p99": 191.475,
+  "decode_gb_s": 10.8417,
+  "ops_pct": {
+    "matmul": 98.95,
+    "attn": 0.46,
+    "rmsnorm": 0.16,
+    "rope": 0.31,
+    "softmax": 0.12,
+    "sample": 0.0
+  },
+  "job": "tinyllama_11b_q8_v2",
+  "model_file": "models/tinyllama-1.1b-chat-v1.0.Q8_0.gguf"
+}

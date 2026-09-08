@@ -1,0 +1,13 @@
+{
+  "bench": "gemm_f32",
+  "M": 256,
+  "N": 2048,
+  "K": 2048,
+  "threads": 6,
+  "simd": true,
+  "blocked": true,
+  "gflop_s_median": 82.8629,
+  "gflop_s_q1": 75.8935,
+  "gflop_s_q3": 83.9648,
+  "sink": 1.2288
+}

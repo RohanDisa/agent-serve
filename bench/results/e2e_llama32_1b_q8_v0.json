@@ -1,0 +1,32 @@
+{
+  "bench": "e2e",
+  "stage": "v0",
+  "threads": 1,
+  "simd": false,
+  "blocked": false,
+  "kv_layout": "seq",
+  "n_in": 6,
+  "n_predict": 32,
+  "weight_bytes": 1313251456,
+  "prefill_tok_s_median": 1.4068,
+  "prefill_tok_s_q1": 1.3968,
+  "prefill_tok_s_q3": 1.4925,
+  "decode_tok_s_median": 1.1624,
+  "decode_tok_s_q1": 1.1535,
+  "decode_tok_s_q3": 1.1985,
+  "ttft_s_median": 4.265058,
+  "decode_tok_ms_p50": 850.642,
+  "decode_tok_ms_p95": 945.7243,
+  "decode_tok_ms_p99": 997.4282,
+  "decode_gb_s": 1.5265,
+  "ops_pct": {
+    "matmul": 99.88,
+    "attn": 0.04,
+    "rmsnorm": 0.01,
+    "rope": 0.05,
+    "softmax": 0.01,
+    "sample": 0.0
+  },
+  "job": "llama32_1b_q8_v0",
+  "model_file": "models/Llama-3.2-1B-Instruct-Q8_0.gguf"
+}

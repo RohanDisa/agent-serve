@@ -1,0 +1,32 @@
+{
+  "bench": "e2e",
+  "stage": "v2",
+  "threads": 6,
+  "simd": true,
+  "blocked": false,
+  "kv_layout": "seq",
+  "n_in": 5,
+  "n_predict": 32,
+  "weight_bytes": 1888581632,
+  "prefill_tok_s_median": 13.6854,
+  "prefill_tok_s_q1": 13.3632,
+  "prefill_tok_s_q3": 13.9954,
+  "decode_tok_s_median": 6.7767,
+  "decode_tok_s_q1": 6.7146,
+  "decode_tok_s_q3": 6.9978,
+  "ttft_s_median": 0.365352,
+  "decode_tok_ms_p50": 141.0434,
+  "decode_tok_ms_p95": 174.1577,
+  "decode_tok_ms_p99": 198.9101,
+  "decode_gb_s": 12.7984,
+  "ops_pct": {
+    "matmul": 99.41,
+    "attn": 0.24,
+    "rmsnorm": 0.11,
+    "rope": 0.2,
+    "softmax": 0.05,
+    "sample": 0.0
+  },
+  "job": "qwen25_15b_q8_v2",
+  "model_file": "models/qwen2.5-1.5b-instruct-q8_0.gguf"
+}
